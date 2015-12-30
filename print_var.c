@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:41:34 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/29 20:41:04 by adubedat         ###   ########.fr       */
+/*   Updated: 2015/12/30 18:57:27 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	print_var(const char *str, int *i, va_list args)
 	char c;
 
 	param = get_param(str, i, &c);
-	if (c == 's')
-		print_string(param, args);
+	if (c == 'x' || c == 's')
+		print_string(param, args, c);
 }

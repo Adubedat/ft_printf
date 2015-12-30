@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:47:58 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/29 20:41:02 by adubedat         ###   ########.fr       */
+/*   Updated: 2015/12/30 19:00:16 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(void)
 {
-	printf("je code %s le %s", "avec", "cul");
-//	ft_printf("je code %s le %s", "avec", "cul"); 
+//	printf("je code %04o le %s", 42, "cul");
+	ft_printf("je code %x le %s", "avec", "cul"); 
 	return (0);
 }
