@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:21:37 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 15:13:48 by adubedat         ###   ########.fr       */
+/*   Updated: 2015/12/31 22:46:30 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,19 @@ int		print_var(const char *str, int *i, va_list args)
 	if (!(f.param = get_param(str, i, &f.conversion, f.param)))
 		return (0);
 	f = init_flags(f);
-	if (f.conversion == 's')
-		return (print_string(args, f));
+	f = check_first_flag(f);
+	if (f.conversion == 's' || f.conversion == 'S')
+		return (sring_conv(args, f));
+	else if (f.conversion == 'i' || f.conversion == 'd' || f.conversion == 'D')
+		return (signed_conv(args, f));
+	else if (ft_strchr("oOuUxX", f.conversion) != NULL)
+		return (unsigned_conv(args, f));
+	else if (f.conversion == 'c' || f.conversion == 'C' || f.conversion == '%')
+		return (char_conv(args, f));
+	return (0);
 }
 
-int	distrib(const char *str, int i, va_list args)
+int		distrib(const char *str, int i, va_list args)
 {
 	static int	result = 0;
 
@@ -83,7 +91,7 @@ int	distrib(const char *str, int i, va_list args)
 	return (result);
 }
 
-int	ft_printf(const char *str, ...)
+int		ft_printf(const char *str, ...)
 {
 	int	i;
 	int result;

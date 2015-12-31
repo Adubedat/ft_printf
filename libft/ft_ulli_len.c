@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/29 19:33:49 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:49:40 by adubedat         ###   ########.fr       */
+/*   Created: 2015/11/29 13:57:32 by adubedat          #+#    #+#             */
+/*   Updated: 2015/12/31 17:09:30 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int	sring_conv(va_list args, t_flags f)
+int		ft_ulli_len(unsigned long long int n)
 {
-	t_modifier	m;
-	char		*str;
-	int			len;
+	int	len;
 
-	if (f.modifier == 4 || f.conversion == 'S')
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
 	{
-		m.wstrt = va_arg(args, wchar_t*);
-//		str = ???;
+		len++;
+		n = n / 10;
 	}
-	else
-	{
-		str = va_arg(args, char*);
-		str = ft_strdup(str);
-	}
-//	str = apply_flags(str, f);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
 	return (len);
 }

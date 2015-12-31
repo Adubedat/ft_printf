@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:22:43 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/02 15:48:04 by adubedat         ###   ########.fr       */
+/*   Updated: 2015/12/31 21:31:05 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,23 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 void				ft_puttab2d(char **str);
 char				*ft_itoa(int n);
+char				*ft_itoa_lli(long long int n);
+char				*ft_itoa_ulli(unsigned long long int n);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int					ft_lli_len(long long int n);
+int					ft_ulli_len(unsigned long long int n);
 int					ft_intlen(int n);
 void				ft_swap(int *a, int *b);
 int					*ft_rrange(int start, int end);
 int					ft_power(int n, int power);
 char				**ft_malloctab2d(size_t x, size_t y);
+char				*ft_itoa_base_lli(long long int v, int base, char c);
+char				*ft_itoa_base_ulli(unsigned long long int v, int base,
+		char c);
 
 #endif

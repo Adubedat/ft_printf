@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/29 19:33:49 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:49:40 by adubedat         ###   ########.fr       */
+/*   Created: 2015/11/27 12:46:45 by adubedat          #+#    #+#             */
+/*   Updated: 2015/12/31 17:09:09 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int	sring_conv(va_list args, t_flags f)
+char		*ft_itoa_ulli(unsigned long long int n)
 {
-	t_modifier	m;
-	char		*str;
-	int			len;
+	size_t	size;
+	char	*str;
 
-	if (f.modifier == 4 || f.conversion == 'S')
+	size = ft_ulli_len(n);
+	if (!(str = ft_strnew(size)))
+		return (NULL);
+	str[size] = '\0';
+	size--;
+	if (n == 0)
+		str[size] = '0';
+	while (n != 0)
 	{
-		m.wstrt = va_arg(args, wchar_t*);
-//		str = ???;
+		str[size] = (n % 10) + '0';
+		n = n / 10;
+		size--;
 	}
-	else
-	{
-		str = va_arg(args, char*);
-		str = ft_strdup(str);
-	}
-//	str = apply_flags(str, f);
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	return (str);
 }

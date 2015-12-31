@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 12:30:58 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 15:19:45 by adubedat         ###   ########.fr       */
+/*   Updated: 2015/12/31 22:09:23 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ t_flags		check_fourth_flag(t_flags f)
 			f.modifier = 1;
 		else if (f.param[f.j] == 'h' && f.modifier == 0)
 			f.modifier = 2;
-		else if (f.param[f.j] == 'l' && f.param[f.j + 1] == 'l' && f.modifier == 0)
+		else if (f.param[f.j] == 'l' && f.param[f.j + 1] == 'l'
+				&& f.modifier == 0)
 			f.modifier = 3;
 		else if (f.param[f.j] == 'l' && f.modifier == 0)
 			f.modifier = 4;
