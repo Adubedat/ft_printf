@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:21:37 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/30 22:03:45 by adubedat         ###   ########.fr       */
+/*   Updated: 2015/12/31 15:13:48 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ char	*get_param(const char *str, int *i, char *c, char *param)
 
 	j = *i;
 	k = 0;
-	while (ft_strchr("sSpdDioOuUxXcC%", str[*i]) == NULL)
+	while (str[*i] && ft_strchr("sSpdDioOuUxXcC%", str[*i]) == NULL)
 		*i = *i + 1;
+	if (str[*i] == '\0')
+		return (NULL);
 	*c = str[*i];
-	fparam = (char*)malloc(sizeof(char) * (*i - j) + 1);
+	if (!(param = (char*)malloc(sizeof(char) * (*i - j) + 1)))
+		return (NULL);
 	while (j <= *i)
 	{
 		param[k] = str[j];
@@ -41,8 +44,8 @@ t_flags	init_flags(t_flags f)
 	f.moins = 0;
 	f.space = 0;
 	f.plus = 0;
-	f.digit = 0;
-	f.precision = 0;
+	f.width = 0;
+	f.precision = -1;
 	f.modifier = 0;
 	return (f);
 }
@@ -51,10 +54,11 @@ int		print_var(const char *str, int *i, va_list args)
 {
 	t_flags f;
 
-	f.param = get_param(str, i, &f.conversion, f.param);
+	if (!(f.param = get_param(str, i, &f.conversion, f.param)))
+		return (0);
 	f = init_flags(f);
-	if (t.conversion == 's')
-		return (print_string(f, args));
+	if (f.conversion == 's')
+		return (print_string(args, f));
 }
 
 int	distrib(const char *str, int i, va_list args)
@@ -71,7 +75,8 @@ int	distrib(const char *str, int i, va_list args)
 	{
 		i++;
 		result += print_var(str, &i, args);
-		i++;
+		if (str[i])
+			i++;
 	}
 	if (str[i])
 		return (distrib(str, i, args));
