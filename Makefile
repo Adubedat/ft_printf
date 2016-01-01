@@ -6,7 +6,7 @@
 #    By: adubedat <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 19:30:56 by adubedat          #+#    #+#              #
-#    Updated: 2016/01/01 20:44:43 by adubedat         ###   ########.fr        #
+#    Updated: 2016/01/01 21:40:40 by adubedat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,11 @@ SRC = libft/ft_putchar.c libft/ft_putstr.c libft/ft_putendl.c \
 	  libft/ft_lli_len.c libft/ft_ulli_len.c libft/ft_itoa_base_lli.c \
 	  libft/ft_itoa_base_ulli.c libft/ft_ulli_len_base.c libft/ft_addr.c \
 	  libft/ft_strjoin_free_s2.c libft/ft_strsub_free.c libft/ft_strjoin_free_s1.c \
-	  libft/ft_atoi_base.c libft/ft_putwchar.c ft_printf.c signed_decimal.c string.c \
-	  apply_flags.c unsigned_decimal.c char.c pointer.c check_flags.c 
+	  libft/ft_atoi_base.c libft/ft_putwchar.c libft/ft_putwstr.c ft_printf.c \
+	  signed_decimal.c string.c apply_flags.c unsigned_decimal.c char.c pointer.c \
+	  check_flags.c 
 
-OBJ = $(subst,.c,.o,$(OBJ))
+OBJ = $(subst .c,.o,$(SRC))
 
 all: $(NAME)
 
@@ -45,10 +46,10 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

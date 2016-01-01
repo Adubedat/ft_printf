@@ -6,20 +6,23 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:34:26 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 20:20:16 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 21:54:35 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putwstr(char const *s)
+char	*ft_putwstr(wchar_t *s)
 {
-	int i;
+	int 	i;
+	char	*str;
 
 	i = 0;
+	str = ft_strnew(0);
 	while (s[i] != '\0')
 	{
-		ft_putwchar(s[i]);
+		str = ft_strjoin(str, ft_putwchar(s[i]));
 		i++;
 	}
+	return (str);
 }

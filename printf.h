@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:23:10 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 17:54:37 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 22:16:58 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct				s_flags
 	int						width;
 	int						precision;
 	int						modifier;
+	int						null;
 	char					conversion;
 	char					*param;
 }							t_flags;
@@ -82,5 +83,6 @@ char						*apply_flags(char *str, t_flags f);
 char						*apply_precision(char *str, t_flags f);
 char						*apply_width(char *str, t_flags f);
 char						*char_conv2(va_list args, t_flags f, char *str);
+void						ft_putstr_0(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:21:37 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 16:41:37 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 22:37:53 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_flags	init_flags(t_flags f)
 	f.width = 0;
 	f.precision = -1;
 	f.modifier = 0;
+	f.null = 0;
 	return (f);
 }
 

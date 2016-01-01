@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 19:33:49 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 16:54:37 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 21:57:08 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	sring_conv(va_list args, t_flags f)
 	if (f.modifier == 4 || f.conversion == 'S')
 	{
 		m.wstrt = va_arg(args, wchar_t*);
-//		str = ???;
+		if (m.wstrt)
+			str = ft_putwstr(m.wstrt);
 	}
 	else
 	{

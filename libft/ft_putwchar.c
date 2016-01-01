@@ -6,28 +6,27 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 19:41:18 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 20:40:38 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 21:27:13 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <wchar.h>
-#include <unistd.h>
 #include "libft.h"
 
-void	putwchar_print(char *str)
+char	*putwchar_print(char *str)
 {
 	int		i;
-	char	dec;
+	char	*res;
 	char	**split;
 
 	i = 0;
+	res = (char*)malloc(sizeof(char) * 5);
 	split = ft_strsplit(str, ' ');
 	while (split[i])
 	{
-		dec = ft_atoi_base(split[i], 2);
-		write(1, &dec, 1);
+		res[i] = ft_atoi_base(split[i], 2);
 		i++;
 	}
+	return (res);
 }
 
 char	*putwchar_fill(char *mask, char *bin)
@@ -59,6 +58,7 @@ char	*ft_putwchar(wint_t c)
 {
 	char	*bin;
 	char	*mask;
+	char	*str;
 	int		len;
 
 	bin = ft_itoa_base_ulli((unsigned long long int)c, 2, 'x');
@@ -74,6 +74,7 @@ char	*ft_putwchar(wint_t c)
 		else
 			mask = ft_strdup("11110xxx 10xxxxxx 10xxxxxx 10xxxxxx");
 		mask = putwchar_fill(mask, bin);
-		return (mask);
+		str = putwchar_print(mask);
+		return (str);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 00:15:01 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 18:52:04 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 22:26:16 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ char	*apply_width(char *str, t_flags f)
 		else if (f.zero == 1 && f.moins == 1)
 			str = ft_strjoin_free_s1(str, "0");
 	}
-	ft_putstr(str);
+	if (f.null == 0)
+		ft_putstr(str);
+	else
+		ft_putstr_0(str);
 	return (str);
 }
