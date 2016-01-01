@@ -6,19 +6,21 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:47:58 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 02:07:00 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 20:29:24 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "printf.h"
+#include <limits.h>
 
 int	main(void)
 {
 	int i = 10;
 	int *b = &i;
 
-	ft_putnbr(ft_printf("This is a simple test.\nSecond sentence.\n")); 
-	ft_putnbr(printf("This is a simple test.\nSecond sentence.\n")); 
+//	ft_printf("%c\n", 0); 
+//	printf("%C", L'該');
+	ft_putwchar(L'該');
 	return (0);
 }

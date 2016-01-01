@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.c                                           :+:      :+:    :+:   */
+/*   ft_strwdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/29 19:33:49 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 16:54:37 by adubedat         ###   ########.fr       */
+/*   Created: 2015/11/23 17:51:12 by adubedat          #+#    #+#             */
+/*   Updated: 2016/01/01 20:27:46 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int	sring_conv(va_list args, t_flags f)
+wchar_t	*ft_strwdup(const wchar_t *s)
 {
-	t_modifier	m;
-	char		*str;
-	int			len;
+	size_t	s_size;
+	wchar_t	*str;
+	int		i;
 
-	str = NULL;
-	if (f.modifier == 4 || f.conversion == 'S')
-	{
-		m.wstrt = va_arg(args, wchar_t*);
-//		str = ???;
-	}
-	else
-	{
-		str = va_arg(args, char*);
-		if (str)
-			str = ft_strdup(str);
-	}
+	i = 0;
+	s_size = ft_strwlen(s);
+	str = (wchar_t *)malloc(sizeof(*str) * (s_size + 1));
 	if (str)
-		str = apply_flags(str, f);
+	{
+		while (s[i] != '\0')
+		{
+			str[i] = s[i];
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
+	}
 	else
-		ft_putstr(str = ft_strdup("(null)"));
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+		return (NULL);
 }

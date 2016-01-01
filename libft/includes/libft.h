@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:22:43 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 01:16:04 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 19:52:21 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -101,5 +102,7 @@ char				*ft_strjoin_free_s2(char const *s1, char const *s2);
 char				*ft_strsub_free(char const *s, unsigned int start,
 		size_t len);
 char				*ft_strjoin_free_s1(char const *s1, char const *s2);
+int					ft_atoi_base(const char *str, int base);
+void				ft_putwchar(wchar_t c);
 
 #endif

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pointer.c                                          :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/31 22:59:06 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 16:59:24 by adubedat         ###   ########.fr       */
+/*   Created: 2015/11/23 13:34:26 by adubedat          #+#    #+#             */
+/*   Updated: 2016/01/01 20:20:16 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int				pointer_conv(va_list args, t_flags f)
+void	ft_putwstr(char const *s)
 {
-	t_modifier	m;
-	int			len;
-	char		*str;
+	int i;
 
-	m.v = va_arg(args, void*);
-	str = ft_addr(m.v);
-	if (str[2] == '\0')
-		ft_strjoin(str, "0");
-	str = apply_flags(str, f);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putwchar(s[i]);
+		i++;
+	}
 }

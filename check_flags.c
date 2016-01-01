@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 12:30:58 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 01:43:39 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 03:38:22 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_flags		check_first_flag(t_flags f)
 				&& f.diese == 0)
 			f.diese = 1;
 		else if (f.param[f.j] == '0' && f.zero == 0 && f.moins == 0
-				&& ft_strchr("dDioOuUxX", f.conversion) == NULL)
+				&& ft_strchr("cCsSdDioOuUxX%", f.conversion) != NULL)
 			f.zero = 1;
 		else if (f.param[f.j] == '-' && f.moins == 0)
 		{

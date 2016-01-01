@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 12:46:45 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:17:11 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 17:56:48 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char		*ft_itoa_lli2(long long int n, char *str, size_t size)
 {
 	while (n != 0)
 	{
-		str[size] = -n % 10 + '0';
+		str[size] = -(n % 10) + '0';
 		n /= 10;
 		size--;
 	}

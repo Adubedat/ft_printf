@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 00:15:01 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 01:55:06 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 18:52:04 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*apply_flags(char *str, t_flags f)
 {
-	if (f.diese == 1 && str[0] != '0')
+	if (f.diese == 1 && str[0] != '0' && f.precision != 0)
 	{
 		if (f.conversion == 'o')
 			str = ft_strjoin_free_s2("0", str);
@@ -39,7 +39,7 @@ char	*apply_precision(char *str, t_flags f)
 			&& (size_t)f.precision > ft_strlen(str))
 	{
 		while ((size_t)f.precision > ft_strlen(str))
-			ft_strjoin_free_s2("0", str);
+			str = ft_strjoin_free_s2("0", str);
 	}
 	return (apply_width(str, f));
 }
