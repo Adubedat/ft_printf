@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/31 22:24:57 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 02:09:47 by adubedat         ###   ########.fr       */
+/*   Created: 2015/11/26 16:31:14 by adubedat          #+#    #+#             */
+/*   Updated: 2016/01/01 00:59:42 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int		char_conv(va_list args, t_flags f)
+char	*ft_strsub_free(char const *s, unsigned int start, size_t len)
 {
-	t_modifier	m;
-	int			len;
 	char		*str;
+	size_t		i;
 
-	if (f.modifier == 4 || f.conversion == 'C')
+	if (!(str = (char*)malloc(sizeof(*str) * len + 1)))
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		m.wit = va_arg(args, wint_t);
-//		str == ???
+		str[i] = s[start + i];
+		i++;
 	}
-	else if (f.conversion == '%')
-		str = ft_strdup("%");
-	else
-	{
-		m.i = va_arg(args, int);
-		str = ft_strdup((const char*)&m.i);
-	}
-	if (f.conversion != '%')
-		str = apply_flags(str, f);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	str[i] = '\0';
+	free((void*)s);
+	return (str);
 }

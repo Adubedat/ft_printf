@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:22:43 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 21:43:21 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 01:16:04 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,11 @@ char				**ft_malloctab2d(size_t x, size_t y);
 char				*ft_itoa_base_lli(long long int v, int base, char c);
 char				*ft_itoa_base_ulli(unsigned long long int v, int base,
 		char c);
+char				*ft_addr(void *v);
+int					ft_ulli_len_base(unsigned long long int nbr, int base);
+char				*ft_strjoin_free_s2(char const *s1, char const *s2);
+char				*ft_strsub_free(char const *s, unsigned int start,
+		size_t len);
+char				*ft_strjoin_free_s1(char const *s1, char const *s2);
 
 #endif

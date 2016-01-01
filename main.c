@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:47:58 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:46:50 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 02:07:00 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 int	main(void)
 {
-	long long int i;
+	int i = 10;
+	int *b = &i;
 
-	i = -2147483649;
-	ft_printf("test %c %u\n", 850, i); 
-//	ft_putchar('\n');
-	printf("test %c %u", 850, i);
+	ft_putnbr(ft_printf("This is a simple test.\nSecond sentence.\n")); 
+	ft_putnbr(printf("This is a simple test.\nSecond sentence.\n")); 
 	return (0);
 }

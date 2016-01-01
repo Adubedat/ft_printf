@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 20:48:22 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:24:40 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 01:55:58 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		unsigned_conv(va_list args, t_flags f)
 	int			len;
 	char		*str;
 
+	str = NULL;
 	if (f.modifier == 0 && f.conversion != 'O' && f.conversion != 'U')
 	{
 		m.ui = va_arg(args, unsigned int);
@@ -31,8 +32,7 @@ int		unsigned_conv(va_list args, t_flags f)
 			str = ft_itoa_ulli((unsigned long long int)m.ui);
 	}
 	str = unsigned_conv2(str, args, f, m);
-//	str = apply_flags(str, f);
-	ft_putstr(str);
+	str = apply_flags(str, f);
 	len = ft_strlen(str);
 	free(str);
 	return (len);

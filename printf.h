@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:23:10 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:49:45 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 02:11:17 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct				s_flags
 {
 	int						j;
-	int 					diese;
+	int						diese;
 	int						zero;
 	int						moins;
 	int						space;
@@ -67,7 +67,7 @@ t_flags						check_third_flag(t_flags f);
 t_flags						check_fourth_flag(t_flags f);
 int							signed_conv(va_list args, t_flags f);
 char						*signed_conv2(char *str, va_list args, t_flags f,
-	   t_modifier m);
+		t_modifier m);
 int							unsigned_conv(va_list args, t_flags f);
 char						*unsigned_conv2(char *str, va_list args, t_flags f,
 		t_modifier m);
@@ -76,5 +76,9 @@ char						*unsigned_conv3(char *str, va_list args, t_flags f,
 char						*unsigned_conv4(char *str, va_list args, t_flags f,
 		t_modifier m);
 int							char_conv(va_list args, t_flags f);
+int							pointer_conv(va_list args, t_flags f);
+char						*apply_flags(char *str, t_flags f);
+char						*apply_precision(char *str, t_flags f);
+char						*apply_width(char *str, t_flags f);
 
 #endif

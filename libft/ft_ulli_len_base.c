@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_ulli_len_base.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/29 13:57:32 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 23:37:05 by adubedat         ###   ########.fr       */
+/*   Created: 2015/12/31 23:34:38 by adubedat          #+#    #+#             */
+/*   Updated: 2015/12/31 23:39:26 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_ulli_len(unsigned long long int n)
+int		ft_ulli_len_base(unsigned long long int nbr, int base)
 {
-	int	len;
+	int result;
 
-	len = 0;
-	if (n == 0)
+	result = 0;
+	if (nbr == 0)
 		return (1);
-	while (n != 0)
+	while (nbr != 0)
 	{
-		len++;
-		n = n / 10;
+		nbr /= base;
+		result++;
 	}
-	return (len);
+	return (result);
 }

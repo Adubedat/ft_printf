@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_addr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/29 13:57:32 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 23:37:05 by adubedat         ###   ########.fr       */
+/*   Created: 2015/12/31 23:23:21 by adubedat          #+#    #+#             */
+/*   Updated: 2015/12/31 23:44:02 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_ulli_len(unsigned long long int n)
+char	*ft_addr(void *v)
 {
-	int	len;
+	unsigned long int	nbr;
+	int					base[2];
+	char				*str;
+	char				*b;
 
-	len = 0;
-	if (n == 0)
-		return (1);
-	while (n != 0)
+	b = "0123456789abcdef";
+	base[0] = 16;
+	nbr = (unsigned long int)v;
+	base[1] = ft_ulli_len_base(nbr, 16) + 2;
+	str = (char*)malloc(sizeof(char) * base[1] + 1);
+	str[base[1]] = '\0';
+	str[0] = '0';
+	str[1] = 'x';
+	base[1]--;
+	while (nbr != 0)
 	{
-		len++;
-		n = n / 10;
+		str[base[1]] = b[nbr % 16];
+		base[1]--;
+		nbr /= 16;
 	}
-	return (len);
+	return (str);
 }

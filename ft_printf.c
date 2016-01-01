@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:21:37 by adubedat          #+#    #+#             */
-/*   Updated: 2015/12/31 22:46:30 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/01 02:10:08 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int		print_var(const char *str, int *i, va_list args)
 		return (unsigned_conv(args, f));
 	else if (f.conversion == 'c' || f.conversion == 'C' || f.conversion == '%')
 		return (char_conv(args, f));
+	else if (f.conversion == 'p')
+		return (pointer_conv(args, f));
 	return (0);
 }
 
@@ -93,8 +95,8 @@ int		distrib(const char *str, int i, va_list args)
 
 int		ft_printf(const char *str, ...)
 {
-	int	i;
-	int result;
+	int			i;
+	int			result;
 	va_list		args;
 
 	i = 0;
