@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 15:44:32 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 17:55:19 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:19:29 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		signed_conv(va_list args, t_flags f)
 {
 	t_modifier	m;
-	int			len;
 	char		*str;
 
 	str = NULL;
@@ -36,9 +35,10 @@ int		signed_conv(va_list args, t_flags f)
 	}
 	str = signed_conv2(str, args, f, m);
 	str = apply_flags(str, f);
-	len = ft_strlen(str);
+	f.diese = ft_strlen(str);
 	free(str);
-	return (len);
+	free(f.param);
+	return (f.diese);
 }
 
 char	*signed_conv2(char *str, va_list args, t_flags f, t_modifier m)

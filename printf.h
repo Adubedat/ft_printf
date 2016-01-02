@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:23:10 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 22:16:58 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 20:37:22 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char						*get_param(const char *str, int *i,
 int							print_var(const char *str, int *i, va_list args);
 int							distrib(const char *str, int i, va_list args,
 		int result);
-int							sring_conv(va_list args, t_flags f);
+int							string_conv(va_list args, t_flags f);
 t_flags						init_flags(t_flags f);
 t_flags						check_first_flag(t_flags f);
 t_flags						check_first_flag2(t_flags f);
@@ -81,8 +81,11 @@ int							char_conv(va_list args, t_flags f);
 int							pointer_conv(va_list args, t_flags f);
 char						*apply_flags(char *str, t_flags f);
 char						*apply_precision(char *str, t_flags f);
+char						*apply_precision2(char *str, t_flags f);
 char						*apply_width(char *str, t_flags f);
 char						*char_conv2(va_list args, t_flags f, char *str);
 void						ft_putstr_0(char *str);
+char						*apply_width2(char *str, t_flags f);
+int							check_s_flags(char *param);
 
 #endif

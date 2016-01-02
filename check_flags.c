@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 12:30:58 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 03:38:22 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:28:25 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 t_flags		check_first_flag(t_flags f)
 {
-	if (ft_strchr("#0- +", f.param[f.j]) == NULL)
+	if (ft_strchr("#0- +", f.param[f.j]) == NULL
+			&& ft_strchr(".123456789hljz", f.param[f.j]) != NULL)
 		return (check_second_flag(f));
-	else if (ft_strchr("sSpdDioOuUxXcC%", f.param[f.j]) != NULL)
+	else if (ft_strchr("#0 -+.123456789hljz", f.param[f.j]) == NULL)
 		return (f);
 	else
 	{
-		if (f.param[f.j] == '#' && ft_strchr("oxX", f.conversion) != NULL
+		if (f.param[f.j] == '#' && ft_strchr("oOxX", f.conversion) != NULL
 				&& f.diese == 0)
 			f.diese = 1;
-		else if (f.param[f.j] == '0' && f.zero == 0 && f.moins == 0
-				&& ft_strchr("cCsSdDioOuUxX%", f.conversion) != NULL)
+		else if (f.param[f.j] == '0' && f.zero == 0 && f.moins == 0)
 			f.zero = 1;
 		else if (f.param[f.j] == '-' && f.moins == 0)
 		{

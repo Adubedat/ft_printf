@@ -6,13 +6,13 @@
 #    By: adubedat <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 19:30:56 by adubedat          #+#    #+#              #
-#    Updated: 2016/01/01 21:40:40 by adubedat         ###   ########.fr        #
+#    Updated: 2016/01/02 22:24:40 by adubedat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = libft/ft_putchar.c libft/ft_putstr.c libft/ft_putendl.c \
+SRC1 = libft/ft_putchar.c libft/ft_putstr.c libft/ft_putendl.c \
 	  libft/ft_putnbr.c libft/ft_putchar_fd.c libft/ft_putstr_fd.c \
 	  libft/ft_putendl_fd.c libft/ft_putnbr_fd.c libft/ft_strlen.c \
 	  libft/ft_strdup.c libft/ft_strcpy.c libft/ft_strncpy.c libft/ft_strcat.c \
@@ -33,20 +33,23 @@ SRC = libft/ft_putchar.c libft/ft_putstr.c libft/ft_putendl.c \
 	  libft/ft_lli_len.c libft/ft_ulli_len.c libft/ft_itoa_base_lli.c \
 	  libft/ft_itoa_base_ulli.c libft/ft_ulli_len_base.c libft/ft_addr.c \
 	  libft/ft_strjoin_free_s2.c libft/ft_strsub_free.c libft/ft_strjoin_free_s1.c \
-	  libft/ft_atoi_base.c libft/ft_putwchar.c libft/ft_putwstr.c ft_printf.c \
-	  signed_decimal.c string.c apply_flags.c unsigned_decimal.c char.c pointer.c \
-	  check_flags.c 
+	  libft/ft_atoi_base.c libft/ft_putwchar.c libft/ft_putwstr.c
 
-OBJ = $(subst .c,.o,$(SRC))
+SRC2 = signed_decimal.c string.c apply_flags.c unsigned_decimal.c char.c pointer.c \
+	  check_flags.c ft_printf.c
+
+OBJ1 = $(SRC1:.c=.o) | cut -d / -f 2
+
+OBJ2 = $(SRC2:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -Wall -Wextra -Werror -c $(SRC)
-	ar rcs $(NAME) $(OBJ)
+	gcc -Wall -Wextra -Werror -c $(SRC1) $(SRC2)
+	ar rcs $(NAME) $(OBJ1) $(OBJ2)
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ1) $(OBJ2)
 
 fclean: clean
 	rm -rf $(NAME)

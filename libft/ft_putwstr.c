@@ -6,23 +6,32 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:34:26 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 21:54:35 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:19:51 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_putwstr(wchar_t *s)
+char	*ft_putwstr(wchar_t *s, int precision)
 {
-	int 	i;
+	int		i;
+	int		len;
+	char	*temp;
 	char	*str;
 
 	i = 0;
+	len = 0;
 	str = ft_strnew(0);
 	while (s[i] != '\0')
 	{
-		str = ft_strjoin(str, ft_putwchar(s[i]));
+		temp = ft_putwchar(s[i]);
+		len += ft_strlen(temp);
+		if (precision != -1 && len <= precision)
+			str = ft_strjoin_free_s1(str, temp);
+		else
+			str = ft_strjoin_free_s1(str, temp);
 		i++;
+		free(temp);
 	}
 	return (str);
 }

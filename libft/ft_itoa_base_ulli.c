@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 20:53:09 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 20:11:33 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:50:02 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ char			*ft_itoa_base_ulli(unsigned long long int value, int base,
 		len--;
 		value /= base;
 	}
+	free(b);
 	return (str);
 }

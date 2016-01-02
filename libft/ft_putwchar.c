@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 19:41:18 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 21:27:13 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:10:50 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*putwchar_print(char *str)
 		res[i] = ft_atoi_base(split[i], 2);
 		i++;
 	}
+	free(split);
 	return (res);
 }
 
@@ -75,6 +76,8 @@ char	*ft_putwchar(wint_t c)
 			mask = ft_strdup("11110xxx 10xxxxxx 10xxxxxx 10xxxxxx");
 		mask = putwchar_fill(mask, bin);
 		str = putwchar_print(mask);
+		free(mask);
+		free(bin);
 		return (str);
 	}
 }

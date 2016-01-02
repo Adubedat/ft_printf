@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 22:24:57 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 22:31:45 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:15:38 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*char_conv2(va_list args, t_flags f, char *str)
 	}
 	else if (f.conversion == '%')
 	{
+		free(str);
 		str = ft_strdup("%");
 		str = apply_flags(str, f);
 	}
@@ -57,10 +58,11 @@ int		char_conv(va_list args, t_flags f)
 		len = ft_strlen(str);
 		if (f.null == 1 && str[0] == '\0')
 			len = ft_strlen(str) + 1;
-		free(str);
 	}
 	else if (f.conversion == '%')
 		len = ft_strlen(str);
+	free(str);
+	free(f.param);
 	return (len);
 }
 

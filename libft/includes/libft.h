@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:22:43 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 21:35:20 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 19:40:26 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ char				*ft_strsub_free(char const *s, unsigned int start,
 char				*ft_strjoin_free_s1(char const *s1, char const *s2);
 int					ft_atoi_base(const char *str, int base);
 char				*ft_putwchar(wint_t c);
-char				*ft_putwstr(wchar_t *str);
+char				*ft_putwstr(wchar_t *str, int precision);
 
 #endif

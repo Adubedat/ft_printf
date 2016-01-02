@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 20:48:22 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 03:33:06 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:39:32 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		unsigned_conv(va_list args, t_flags f)
 	str = apply_flags(str, f);
 	len = ft_strlen(str);
 	free(str);
+	free(f.param);
 	return (len);
 }
 

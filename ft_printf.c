@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:21:37 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 22:37:53 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:40:05 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ char	*get_param(const char *str, int *i, char *c, char *param)
 
 	j = *i;
 	k = 0;
-	while (str[*i] && ft_strchr("sSpdDioOuUxXcC%", str[*i]) == NULL)
-	{
-		if (ft_strchr("#0 -+.123456789hljz", str[*i]) == NULL)
-			return (param = ft_strdup(&str[*i]));
+	while (str[*i] && ft_strchr("#0 -+.123456789hljz", str[*i]) != NULL)
 		*i = *i + 1;
-	}
 	if (str[*i] == '\0')
 		return (NULL);
 	*c = str[*i];
@@ -61,15 +57,13 @@ int		print_var(const char *str, int *i, va_list args)
 
 	if (!(f.param = get_param(str, i, &f.conversion, f.param)))
 		return (0);
-	if (ft_strchr("sSpdDioOuUxXcC%#0 -+.123456789hljz", f.param[0]) == NULL)
-	{
-		ft_putchar(f.param[0]);
-		return (1);
-	}
 	f = init_flags(f);
+	if (ft_strcmp(f.param, "hhld") == 0)
+		f.modifier = 4;
 	f = check_first_flag(f);
-	if (f.conversion == 's' || f.conversion == 'S')
-		return (sring_conv(args, f));
+	if (f.conversion == 's' || f.conversion == 'S'
+			|| ft_strchr("sSpdDioOuUxXcC%", f.conversion) == NULL)
+		return (string_conv(args, f));
 	else if (f.conversion == 'i' || f.conversion == 'd' || f.conversion == 'D')
 		return (signed_conv(args, f));
 	else if (ft_strchr("oOuUxX", f.conversion) != NULL)

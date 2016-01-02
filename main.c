@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/28 17:47:58 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/01 22:31:24 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:27:54 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 
 int	main(void)
 {
-	int i = 10;
-	int *b = &i;
-	char *str;
-
-	ft_putnbr(ft_printf("{%10R}"));
-	ft_putnbr(printf("{%10R}"));
+	ft_printf("%#.5x\n", 1);
 	return (0);
 }
