@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 13:34:26 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/02 22:19:51 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/03 12:02:07 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ char	*ft_putwstr(wchar_t *s, int precision)
 	{
 		temp = ft_putwchar(s[i]);
 		len += ft_strlen(temp);
-		if (precision != -1 && len <= precision)
-			str = ft_strjoin_free_s1(str, temp);
+		if (precision != -1)
+		{
+			if (len <= precision)
+				str = ft_strjoin_free_s1(str, temp);
+		}
 		else
 			str = ft_strjoin_free_s1(str, temp);
 		i++;

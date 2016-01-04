@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 19:33:49 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/02 22:13:03 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/04 15:55:53 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,9 @@ int		string_conv(va_list args, t_flags f)
 		str[0] = f.conversion;
 	}
 	str = string_conv2(args, f, m, str);
-	if (str)
-		str = apply_flags(str, f);
-	else if (!(str) && check_s_flags(f.param) == 0)
-		ft_putstr(str = ft_strdup("(null)"));
-	else
-	{
-		free(str);
-		str = ft_strdup("");
-		str = apply_flags(str, f);
-	}
+	if (!(str))
+		str = ft_strdup("(null)");
+	str = apply_flags(str, f);
 	len = ft_strlen(str);
 	free(str);
 	free(f.param);

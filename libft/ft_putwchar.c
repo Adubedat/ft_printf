@@ -6,7 +6,7 @@
 /*   By: adubedat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/01 19:41:18 by adubedat          #+#    #+#             */
-/*   Updated: 2016/01/02 22:10:50 by adubedat         ###   ########.fr       */
+/*   Updated: 2016/01/03 13:21:53 by adubedat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,19 @@ char	*ft_putwchar(wint_t c)
 	char	*bin;
 	char	*mask;
 	char	*str;
-	int		len;
 
 	bin = ft_itoa_base_ulli((unsigned long long int)c, 2, 'x');
-	len = ft_strlen(bin);
-	if (len <= 7)
-		return (mask = ft_strdup((char*)&c));
+	if (ft_strlen(bin) <= 7)
+	{
+		str = putwchar_print(bin);
+		free(bin);
+		return (str);
+	}
 	else
 	{
-		if (len <= 11)
+		if (ft_strlen(bin) <= 11)
 			mask = ft_strdup("110xxxxx 10xxxxxx");
-		else if (len <= 16)
+		else if (ft_strlen(bin) <= 16)
 			mask = ft_strdup("1110xxxx 10xxxxxx 10xxxxxx");
 		else
 			mask = ft_strdup("11110xxx 10xxxxxx 10xxxxxx 10xxxxxx");
